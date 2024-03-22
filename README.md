@@ -1,5 +1,3 @@
-Code Documentation :
-
 Statement : A TODO Application stores information about the three task : Title and Description of the activity
 
 Approach : Work on a framework which will take web api calls from frontend and store it in database
