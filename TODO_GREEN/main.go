@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	"modernc.org/sqlite"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -15,11 +16,12 @@ type Todo struct {
 }
 
 func main() {
-	// Initialize GORM
+	// Initialize GORM with modernc.org/sqlite driver
 	db, err := gorm.Open(sqlite.Open("todo.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("failed to open database:", err)
 	}
+
 	// Auto-migrate the schema
 	if err := db.AutoMigrate(&Todo{}); err != nil {
 		log.Fatal("failed to migrate database:", err)
@@ -61,6 +63,3 @@ func main() {
 		log.Fatal("Failed to start server:", err)
 	}
 }
-
-
-
