@@ -60,8 +60,8 @@ func main() {
 				return token, errors.New("Invalid audience")
 			}
 			iss := os.Getenv("AUTH0_DOMAIN")
-			checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss,false)
-			if !checkIss{
+			checkI := token.Claims.(jwt.MapClaims).VerifyIssuer(iss,false)
+			if !checkISS{
 				return token , errors.New("Invalid Issuer")
 			}
 
